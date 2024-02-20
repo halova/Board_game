@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <set>
+#include <list>
+#include <algorithm>
+using namespace std;
+
+
+class GameBoard{
+public:
+    void printBoard() ;
+    void place_card(Card *card);
+    void endGame(team);
+private:
+    vector<vector<string>> board {
+            {"**", "AC", "KC", "QC", "TC", "9C", "8C", "7C", "6C", "**"},   //Row1
+            {"AD", "7S", "8S", "9S", "TS", "QS", "KS", "AS", "5C", "2S"},   //Row2
+            {"KD", "6S", "TC", "9C", "8C", "7C", "6C", "2D", "4C", "3S"},   //Row3
+            {"QD", "5S", "QC", "8H", "7H", "6H", "5C", "3D", "3C", "4S"},   //Row4
+            {"TD", "4S", "KC", "9H", "2H", "5H", "4C", "4D", "2C", "5S"},   //Row5
+            {"9D", "3S", "AC", "TH", "3H", "4H", "3C", "5D", "AH", "6S"},   //Row6
+            {"8D", "2S", "AD", "QH", "KH", "AH", "2C", "6D", "KH", "7S"},   //Row7
+            {"7D", "2H", "KD", "QD", "TD", "9D", "8D", "7D", "QH", "8S"},   //Row8
+            {"6D", "3H", "4H", "5H", "6H", "7H", "8H", "9H", "TH", "9S"},   //Row9
+            {"**", "5D", "4D", "3D", "2D", "AS", "KS", "QS", "TS", "**"}    //Row10
+    };
+};
+
+void endGame(string team) {
+    cout << "Winner is Team " << team << endl;
+    exit(-1);
+}

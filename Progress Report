@@ -1,0 +1,93 @@
+PROGRESS REPORT:
+----------------------
+
+jturki@ncsu.edu
+ssweitke@ncsu.edu
+pnguyen4@ncsu.edu
+dchoe2@ncsu.edu
+
+1. We chose the game: "Sequence"
+2. Proposed Code Design:
+  - Board
+    - A 10x10 vector
+    - Access via vector[x,y]
+  -  Deck
+    - Queue/Stack implementation
+    - Independent space/memory for used card to be reshuffled
+  - Turns
+    - Looped linked list that goes between the players
+    - Play a card
+    - Ask what card to play and where to play it
+      - Check if player have card
+        - True: Ask where to play the card
+        - False: Ask for another valid card
+      - Check if where the played card is a valid spot
+        - True: Replace spot with the chip of the respected team, Draw a new card from the deck
+        - False: Cannot play card
+      - Check for special cards
+        - If Jack is played
+          - If one-eye jack is played
+            - remove a chip from board
+          - if two-eye jack is played
+            - place any valid chip in an unoccupied space on board
+    - At end of each turn
+      - Check for win condition
+  - Players
+    - Team
+    - Current Hand
+      - Up to 5 cards
+3. Inheritance Relationship
+  - Game Board
+    - Current State of Board
+      - Current Turn
+      - Win Condition
+      - Space on Board
+    - Player
+      - Team
+      - Current Hand
+    - Deck
+      - Current Deck
+      - Played Deck
+4. R1-R3 Design
+   - R1:
+     - The objects within the code will be the board, players, cards, and the deck.
+   - R2:
+     - Two player objects, one for the user and one for the computer in order to play against.
+   - R3:
+     - Use the console and print it. We will have a timer in where it will wait about 3 seconds per move and then print it on console.
+5. C1-C5 Design
+   - C1:
+     - Encapsulation: having the different methods within each of the classes.
+     - Abstraction: we will private the players hand and only the functions can operate on them.
+     - Inheritance: we will have the console player class inherit from the player class.
+     - Polymorphism: we have a virtual class for the player class so that can be used as polymorphism.
+   - C2:
+     - Since no cards will be deleted and no hands will be equal to eachother, the use of Rule of Zero will take place.
+   - C3:
+     - We will use the player class as the virtual class and both the console player and user will inherit from it.
+   - C4:
+     - We are using a queue for the deck and a vector for the board within our code.
+   - C5:
+     - Done lol.
+6. Team Implementation
+ - Model Type: We decided to do Model 1
+ - Responsibility
+  - Board Implementation
+    - ssweitke@ncsu.edu
+  - Player/Turn Implementation
+    - dchoe2@ncsu.edu
+  - Main Deck/Used Deck Implementation
+    - pnguyen4@ncsu.edu
+  - Regular Play/AutoPlay Implementation
+    - jturki@ncsu.edu
+8. Order of Implementation
+  - Board -> Main Deck/Used Deck -> Player/Turn -> Regular Play/AutoPlay
+10. Timeline
+  - Board Implementation
+    - Finish by 12/2
+  - Player/Turn Implementation
+    - Finish by 12/8
+  - Main Deck/Used Deck Implementation
+    - Finish by 12/6
+  - Regular Play/AutoPlay Implementation
+    - Finish by 12/10
